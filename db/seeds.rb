@@ -10,3 +10,8 @@ Airport.create(name: "Leeds Bradford", code: "LBA")
 Airport.create(name: "Edingburgh", code: "EDI")
 Airport.create(name: "Inverness", code: "INV")
 Airport.create(name: "Wick John O Groats", code:"WCK")
+
+Flight.create(depart_id: 1, arrive_id: 2, departure_time: "2022-05-23 15:00", duration: 60 )
+Flight.create(depart_id: 2, arrive_id: 1, departure_time: "2022-05-23 19:00", duration: 50 )
+Flight.create(depart_id: 2, arrive_id: 4, departure_time: "2022-05-23 17:00", duration: 90 )
+Flight.create(depart_id: 4, arrive_id: 2, departure_time: "2022-05-24 07:00", duration: 85 )
