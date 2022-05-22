@@ -1,0 +1,14 @@
+<h1>Welcome to ScanSkyer!</h1>
+
+<%= form_with model: @flight, method: :get do |form| %>
+  <%= form.label  :depart_id%>
+  <%= form.select :depart_id , [["Edingburgh, 1"], ["Leeds, 2"]]%>
+
+  <%= form.label :arrive_id%>
+  <%= form.select :arrive_id, [["Edingburgh, 1"], ["Leeds, 2"]]%>
+
+  <%= form.label :departure_time%>
+  <%= form.datetime_local_field :departure_time %>
+
+  <%= form.submit %>
+<% end %>
