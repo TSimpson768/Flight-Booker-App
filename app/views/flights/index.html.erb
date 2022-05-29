@@ -1,11 +1,16 @@
 <h1>Welcome to ScanSkyer!</h1>
-
+<% if @flights %>
+  <h2> We found these flights!</h2>
+ <% @flights.each do |flight| %>
+  <h3> <%= flight.departure_airport.name %> to <%= flight.arrival_airport.name %> : <%= flight.departure_time %> </h3>
+ <% end %>
+<% end %>
 <%= form_with model: @flight, method: :get do |form| %>
   <%= form.label  :depart_id%>
-  <%= form.select :depart_id , [["Edingburgh, 1"], ["Leeds, 2"]]%>
+  <%= form.select :depart_id , @airports %>
 
   <%= form.label :arrive_id%>
-  <%= form.select :arrive_id, [["Edingburgh, 1"], ["Leeds, 2"]]%>
+  <%= form.select :arrive_id, @airports %>
 
   <%= form.label :departure_time%>
   <%= form.datetime_local_field :departure_time %>
