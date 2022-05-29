@@ -7,10 +7,10 @@
 <% end %>
 <%= form_with model: @flight, method: :get do |form| %>
   <%= form.label  :depart_id%>
-  <%= form.select :depart_id , @airports %>
+  <%= form.collection_select :depart_id , @airports, :id, :name %>
 
   <%= form.label :arrive_id%>
-  <%= form.select :arrive_id, @airports %>
+  <%= form.collection_select :arrive_id, @airports , :id, :name %>
 
   <%= form.label :departure_time%>
   <%= form.datetime_local_field :departure_time %>
