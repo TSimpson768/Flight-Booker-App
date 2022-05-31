@@ -1,0 +1,2 @@
+  <h3> <%= @flight.departure_airport.name %> to <%= @flight.arrival_airport.name %> : <%= @flight.departure_date%> at 
+  <%= @flight.departure_time.hour %>:<%= @flight.departure_time.min < 9 ? "0" + @flight.departure_time.min.to_s : @flight.departure_time.min %> </h3>
