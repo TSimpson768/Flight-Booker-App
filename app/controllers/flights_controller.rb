@@ -3,7 +3,7 @@ class FlightsController < ApplicationController
   def index
     @flight = Flight.new
     @airports = Airport.all
-    @flights = Flight.where(flight_params)
+    @flights = Flight.where(flight_params) if flight_params
   end
 
   def show
@@ -11,7 +11,7 @@ class FlightsController < ApplicationController
   end
 
   def flight_params
-    params.permit(:flight).permit(:depart_id, :arrive_id, :departure_time)
+    params.fetch(:flight, {}).permit(:depart_id, :arrive_id, :departure_time)
   end
 end
  
