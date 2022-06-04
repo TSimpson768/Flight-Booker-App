@@ -2,6 +2,7 @@ class FlightsController < ApplicationController
 
   def index
     @flight = Flight.new
+    @booking = Booking.new
     @airports = Airport.all
     @flights = Flight.where(flight_params)
     @possible_dates = Flight.select(:departure_date).distinct
