@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new(flight_id_params)
+    @no_passengers = no_passengers
   end
 
   private
@@ -11,7 +12,7 @@ class BookingsController < ApplicationController
   end
 
   def no_passengers
-    { no_passengers: all_params[1] }
+    all_params[1]
   end
 
   def all_params

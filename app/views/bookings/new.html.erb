@@ -1,1 +1,5 @@
-<h1>BOOKING HELL</h1>
+<h1>Your Booking:</h1>
+
+<h2><%= @booking.flight.departure_airport.name %> to <%= @booking.flight.arrival_airport.name %>, for <%= @no_passengers %> passengers </h2>
+<h3>Departing <%=@booking.flight.departure_date%>, <%=@booking.flight.format_departure_time%></h3>
+<h3>Flight time: <%= @booking.flight.duration%> minutes</h3>
