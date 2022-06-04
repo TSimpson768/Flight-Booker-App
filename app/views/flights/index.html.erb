@@ -1,16 +1,18 @@
 <h1>Welcome to ScanSkyer!</h1>
 <% if @flights %>
   <h2> We found these flights!</h2>
-  <%= form_with model: @booking, url: "/booking/new" do |flight_picker|%>
-    <%= flight_picker.collection_radio_buttons :flight_id, @flights, :id, :flight_info %>
-    <%= flight_picker.hidden_field :no_pasengers, value: @no_pasengers%>
+  <%= form_with url: new_booking_path, method: :get do |flight_picker|%>
+
+    <%= flight_picker.collection_radio_buttons :flight_id, @flights, :id, :flight_info, {include_hidden: false } %>
+    <%= flight_picker.hidden_field :no_passengers, value: @no_passengers%>
 
     <%= flight_picker.submit %>
   <% end %>
 
 
 <% end %>
-<%= form_with model: @flight, method: :get do |form| %>
+<%= form_with method: :get do |form| %>
+
   <%= form.label  :depart_id%>
   <%= form.collection_select :depart_id , @airports, :id, :name %>
 
@@ -21,7 +23,7 @@
   <%= form.collection_select :departure_date, @possible_dates, :departure_date, :departure_date %>
 
   <%= form.label :no_passengers %>
-  <%= form.select :no_pasengers, [1 ,2, 3, 4, 5, 6, 7, 8, 9]  %>
+  <%= form.select :no_passengers, [1 ,2, 3, 4, 5, 6, 7, 8, 9]  %>
 
   <%= form.submit %>
 <% end %>
