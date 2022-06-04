@@ -12,7 +12,7 @@ class FlightsController < ApplicationController
   end
 
   def flight_params
-    params.fetch(:flight, {}).permit(:depart_id, :arrive_id, :departure_date)
+    params.fetch(:flight, {}).permit(:depart_id, :arrive_id, :departure_date, :no_passengers)
   end
 end
  
