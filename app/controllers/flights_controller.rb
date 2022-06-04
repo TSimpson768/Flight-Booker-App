@@ -6,6 +6,7 @@ class FlightsController < ApplicationController
     @airports = Airport.all
     @flights = Flight.where(flight_params)
     @possible_dates = Flight.select(:departure_date).distinct
+    @no_passengers = no_passenger_params
   end
 
   def show
@@ -14,6 +15,10 @@ class FlightsController < ApplicationController
 
   def flight_params
     params.fetch(:flight, {}).permit(:depart_id, :arrive_id, :departure_date, :no_passengers)
+  end
+
+  def no_passenger_params
+    params.permit(:no_passengers)
   end
 end
  

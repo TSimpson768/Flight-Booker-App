@@ -3,6 +3,7 @@
   <h2> We found these flights!</h2>
   <%= form_with model: @booking, url: "/booking/new" do |flight_picker|%>
     <%= flight_picker.collection_radio_buttons :flight_id, @flights, :id, :flight_info %>
+    <%= flight_picker.hidden_field :no_pasengers, value: @no_pasengers%>
 
     <%= flight_picker.submit %>
   <% end %>
