@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new(flight_id_params)
     @no_passengers = no_passengers
+    no_passengers.to_i.times { @booking.passengers.build }
   end
 
   private

@@ -5,9 +5,35 @@
 <h3>Flight time: <%= @booking.flight.duration%> minutes</h3>
 
 <%= form_with model: @booking do |form|%>
-  <%@no_passengers.times do |i| %>
-  <h4>Passenger <%= i %> info:</h4>
-    <%=%>
-    <%end%>
+  <h4>Passenger info:</h4>
+    <%= form.fields_for :passengers do |passenger_form|%>
+    <%= passenger_form.label :first_name %>
+    <%= passenger_form.text_field :first_name%>
+
+    <%= passenger_form.label :last_name %>
+    <%= passenger_form.text_field :last_name%>
+
+    <%= passenger_form.label :address1 %>
+    <%= passenger_form.text_field :address1%>
+
+    <%= passenger_form.label :address2 %>
+    <%= passenger_form.text_field :address2%>
+
+    <%= passenger_form.label :address3 %>
+    <%= passenger_form.text_field :address3%>
+
+    <%= passenger_form.label :address4 %>
+    <%= passenger_form.text_field :address4%>
+
+    <%= passenger_form.label :address5 %>
+    <%= passenger_form.text_field :address5%>
+
+    <%= passenger_form.label :postcode %>
+    <%= passenger_form.text_field :postcode%>
+
+    <%= passenger_form.label :date_of_birth %>
+    <%= passenger_form.date_field :date_of_birth%>
   <% end %>
+
+  <%= form.submit%>
 <%end%>
