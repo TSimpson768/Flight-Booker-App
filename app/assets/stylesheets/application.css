@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+body{
+  margin: 0;
+}
+ header {
+  height: 10%;
+  min-height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0px;
+  padding-right: 0px;
+  align-items: center;
+  background-color: royalblue;
+ }
+
+ body {
+  min-height: 100vh;
+  margin: 0%;
+  font-family: 'Open Sans', sans-serif;
+ }
+
+ .body-container {
+  width: 800px;
+  margin: auto;
+  text-align: center;
+  min-height: 80vh;
+  background-color: white;
+  padding: 10px;
+ }
