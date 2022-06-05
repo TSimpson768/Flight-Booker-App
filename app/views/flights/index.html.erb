@@ -1,5 +1,5 @@
 <h1>Welcome to ScanSkyer!</h1>
-<% if @flights %>
+<% unless @flights.empty? %>
   <h2> We found these flights!</h2>
   <%= form_with url: new_booking_path, method: :get do |flight_picker|%>
 
