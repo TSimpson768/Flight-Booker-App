@@ -8,6 +8,7 @@
   <%= form.hidden_field :flight_id, value: @booking.flight_id %>
   <h4>Passenger info:</h4>
     <%= form.fields_for :passengers do |passenger_form|%>
+    <div>
     <%= passenger_form.label :first_name %>
     <%= passenger_form.text_field :first_name%>
 
@@ -34,6 +35,7 @@
 
     <%= passenger_form.label :date_of_birth %>
     <%= passenger_form.date_field :date_of_birth%>
+    </div>
   <% end %>
 
   <%= form.submit%>
