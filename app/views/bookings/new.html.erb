@@ -5,6 +5,7 @@
 <h3>Flight time: <%= @booking.flight.duration%> minutes</h3>
 
 <%= form_with model: @booking do |form|%>
+  <%= form.hidden_field :flight_id, value: @booking.flight_id %>
   <h4>Passenger info:</h4>
     <%= form.fields_for :passengers do |passenger_form|%>
     <%= passenger_form.label :first_name %>
