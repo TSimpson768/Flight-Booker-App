@@ -1,42 +1,65 @@
-<h1>Your Booking:</h1>
-
-<h2><%= @booking.flight.departure_airport.name %> to <%= @booking.flight.arrival_airport.name %>, for <%= @no_passengers %> passengers </h2>
-<h3>Departing <%=@booking.flight.departure_date%>, <%=@booking.flight.format_departure_time%></h3>
-<h3>Flight time: <%= @booking.flight.duration%> minutes</h3>
-
-<%= form_with model: @booking do |form|%>
-  <%= form.hidden_field :flight_id, value: @booking.flight_id %>
-  <h4>Passenger info:</h4>
-    <%= form.fields_for :passengers do |passenger_form|%>
-    <div>
-    <%= passenger_form.label :first_name %>
-    <%= passenger_form.text_field :first_name%>
-
-    <%= passenger_form.label :last_name %>
-    <%= passenger_form.text_field :last_name%>
-
-    <%= passenger_form.label :address1 %>
-    <%= passenger_form.text_field :address1%>
-
-    <%= passenger_form.label :address2 %>
-    <%= passenger_form.text_field :address2%>
-
-    <%= passenger_form.label :address3 %>
-    <%= passenger_form.text_field :address3%>
-
-    <%= passenger_form.label :address4 %>
-    <%= passenger_form.text_field :address4%>
-
-    <%= passenger_form.label :address5 %>
-    <%= passenger_form.text_field :address5%>
-
-    <%= passenger_form.label :postcode %>
-    <%= passenger_form.text_field :postcode%>
-
-    <%= passenger_form.label :date_of_birth %>
-    <%= passenger_form.date_field :date_of_birth%>
+<div class="body-container">
+  <h1>Your Booking:</h1>
+  
+  <h2><%= @booking.flight.departure_airport.name %> to <%= @booking.flight.arrival_airport.name %>, for <%= @no_passengers %> passengers </h2>
+  <h3>Departing <%=@booking.flight.departure_date%>, <%=@booking.flight.format_departure_time%></h3>
+  <h3>Flight time: <%= @booking.flight.duration%> minutes</h3>
+  
+  <%= form_with model: @booking do |form|%>
+    <%= form.hidden_field :flight_id, value: @booking.flight_id %>
+    <div class="passenger-info-form">
+      
+      <h4>Passenger info:</h4>
+        <%= form.fields_for :passengers do |passenger_form|%>
+        <div>
+        <div class="passenger-field">
+          <%= passenger_form.label :first_name %>
+          <%= passenger_form.text_field :first_name%>
+        </div>
+        <div class="passenger-field">
+          <%= passenger_form.label :last_name %>
+          <%= passenger_form.text_field :last_name%>
+          
+        </div>
+        <div class="passenger-field">
+          <%= passenger_form.label :address1, "House Name/Number:" %>
+          <%= passenger_form.text_field :address1%>
+          
+        </div>
+        <div class="passenger-field">
+          <%= passenger_form.label :address2, "Street:"%>
+          <%= passenger_form.text_field :address2%>
+          
+        </div>
+        <div class="passenger-field">
+          <%= passenger_form.label :address3, "Town/City:"%>
+          <%= passenger_form.text_field :address3%>
+          
+        </div>
+        <div class="passenger-field">
+          <%= passenger_form.label :address4, "County:" %>
+          <%= passenger_form.text_field :address4%>
+          
+        </div>
+        <div class="passenger-field">
+          <%= passenger_form.label :address5 ,"Country:"%>
+          <%= passenger_form.text_field :address5%>
+          
+        </div>
+        <div class="passenger-field">
+          <%= passenger_form.label :postcode ,"Postcode:"%>
+          <%= passenger_form.text_field :postcode%>
+          
+        </div>
+        <div class="passenger-field">
+          <%= passenger_form.label :date_of_birth %>
+          <%= passenger_form.date_field :date_of_birth%>
+          
+        </div>
+        </div>
     </div>
-  <% end %>
-
-  <%= form.submit%>
-<%end%>
+    <% end %>
+  
+    <%= form.submit "Book Flight"%>
+  <%end%>
+</div>

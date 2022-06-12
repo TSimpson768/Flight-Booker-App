@@ -6,41 +6,45 @@
   
   <div class="search-field">
   
-      <%= form.label  :depart_id%>
+      <%= form.label  :depart_id, "Departing from:"%>
       <%= form.collection_select :depart_id , @airports, :id, :name %>
   </div>
   <div class="search-field">
   
-      <%= form.label :arrive_id%>
+      <%= form.label :arrive_id, "Flying to:"%>
       <%= form.collection_select :arrive_id, @airports , :id, :name %>
   </div>
   <div class="search-field">
   
-      <%= form.label :departure_date%>
+      <%= form.label :departure_date, "Departure Date:"%>
       <%= form.collection_select :departure_date, @possible_dates, :departure_date, :departure_date %>
   </div>
   <div class="search-field">
   
-      <%= form.label :no_passengers %>
+      <%= form.label :no_passengers, "Number of Passengers:"%>
       <%= form.select :no_passengers, [1 ,2, 3, 4, 5, 6, 7, 8, 9]  %>
   </div>
   
-    <%= form.submit %>
+    <%= form.submit "Find Flights" %>
 </div>
 <% end %>
 
 
 <div class="body-container">
-<h1>Welcome to ScanSkyer!</h1>
-<% unless @flights.empty? %>
+<% if @flights.empty? %>
+  <h1>Welcome to ScanSkyer!</h1>
+
+  <p>This is not a real flight booking site, this is a toy app to play around with rails off the clock</p>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur obcaecati reiciendis, quisquam enim magni perferendis possimus nostrum officiis delectus soluta illo voluptas laboriosam nemo totam commodi laudantium, iusto est similique!</p>
+<% else %>
 <div class ="flight-picker">
-  <h2> We found these flights!</h2>
+  <h1> We found these flights!</h1>
   <%= form_with url: new_booking_path, method: :get do |flight_picker|%>
 
     <%= flight_picker.collection_radio_buttons :flight_id, @flights, :id, :flight_info, {include_hidden: false } %>
     <%= flight_picker.hidden_field :no_passengers, value: @no_passengers%>
-
-    <%= flight_picker.submit %>
+    <br>
+    <%= flight_picker.submit "Book"%>
   <% end %>
 
 </div>

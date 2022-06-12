@@ -46,6 +46,17 @@ body{
    margin: 10px;
  }
 
+ header a{
+  text-decoration: none;
+  color: black;
+ }
+
+ header a:visited
+ {
+  text-decoration: none;
+  color: black;
+ }
+
  .search-form {
   padding: 10px;
   background-color: lightgrey;
@@ -53,6 +64,22 @@ body{
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+ }
+
+ .passenger-form {
+  width: 80%;
+}
+
+.passenger-field {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+
+ .passenger-field input{
+  width: 40%;
  }
 
 
