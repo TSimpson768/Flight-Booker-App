@@ -1,25 +1,37 @@
-<h1>Welcome to ScanSkyer!</h1>
 
-<div class="search-form">
+
+
 <%= form_with method: :get do |form| %>
-
-  <%= form.label  :depart_id%>
-  <%= form.collection_select :depart_id , @airports, :id, :name %>
-
-  <%= form.label :arrive_id%>
-  <%= form.collection_select :arrive_id, @airports , :id, :name %>
-
-  <%= form.label :departure_date%>
-  <%= form.collection_select :departure_date, @possible_dates, :departure_date, :departure_date %>
-
-  <%= form.label :no_passengers %>
-  <%= form.select :no_passengers, [1 ,2, 3, 4, 5, 6, 7, 8, 9]  %>
-
-  <%= form.submit %>
-<% end %>
+<div class="search-form">
+  
+  <div class="search-field">
+  
+      <%= form.label  :depart_id%>
+      <%= form.collection_select :depart_id , @airports, :id, :name %>
+  </div>
+  <div class="search-field">
+  
+      <%= form.label :arrive_id%>
+      <%= form.collection_select :arrive_id, @airports , :id, :name %>
+  </div>
+  <div class="search-field">
+  
+      <%= form.label :departure_date%>
+      <%= form.collection_select :departure_date, @possible_dates, :departure_date, :departure_date %>
+  </div>
+  <div class="search-field">
+  
+      <%= form.label :no_passengers %>
+      <%= form.select :no_passengers, [1 ,2, 3, 4, 5, 6, 7, 8, 9]  %>
+  </div>
+  
+    <%= form.submit %>
 </div>
+<% end %>
 
 
+<div class="body-container">
+<h1>Welcome to ScanSkyer!</h1>
 <% unless @flights.empty? %>
 <div class ="flight-picker">
   <h2> We found these flights!</h2>
@@ -33,4 +45,4 @@
 
 </div>
 <% end %>
-
+</div>
