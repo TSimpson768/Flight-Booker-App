@@ -7,6 +7,8 @@
   
   <%= form_with model: @booking do |form|%>
     <%= form.hidden_field :flight_id, value: @booking.flight_id %>
+    <%= form.label :email, "Email Address:" %>
+    <%= form.email_field :email%>
     <div class="passenger-info-form">
       
       <h4>Passenger info:</h4>
