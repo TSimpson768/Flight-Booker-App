@@ -1,21 +1,20 @@
 
-<h1>Flight Booked! You're going to <%= @booking.flight.arrival_airport.name %></h1>
+Flight Booked! You're going to <%= @booking.flight.arrival_airport.name %>
 
-<h2>Details</h2>
-<ul>
-<li>Departing <%= @booking.flight.departure_airport.name %> at <%=@booking.flight.departure_time %> on <%=@booking.flight.departure_time %> </li>
-<li>Arriving in <%= @booking.flight.arrival_airport.name %> after <%= @booking.flight.duration %></li>
-</ul>
+Details
 
-<h2>Passengers</h2>
-<ul>
+Departing <%= @booking.flight.departure_airport.name %> at <%=@booking.flight.departure_time %> on <%=@booking.flight.departure_time %>
+Arriving in <%= @booking.flight.arrival_airport.name %> after <%= @booking.flight.duration %>
+
+Passengers
+
 <% @booking.passengers.each do |passenger| %>
-  <li><%= passenger.first_name %> <%= passenger.last_name %></li>
+  <%= passenger.first_name %> <%= passenger.last_name %>
 <% end %>
-</ul>
 
-<h2>Things to Know Before You Fly</h2>
-<p>Hi. I'm Troy McClure. You may remember me from such self-help tapes as "Smoke Yourself Thin" and "Get Some Confidence, Stupid!" Shoplifting is a victimless crime. Like punching someone in the dark. Oh, so they have Internet on computers now!
+
+Things to Know Before You Fly<
+Hi. I'm Troy McClure. You may remember me from such self-help tapes as "Smoke Yourself Thin" and "Get Some Confidence, Stupid!" Shoplifting is a victimless crime. Like punching someone in the dark. Oh, so they have Internet on computers now!
 
 I'm allergic to bee stings. They cause me to, uh, die. Mrs. Krabappel and Principal Skinner were in the closet making babies and I saw one of the babies and then the baby looked at me. Fire can be our friend; whether it's toasting marshmallows or raining down on Charlie.
 
@@ -34,4 +33,4 @@ Son, a woman is like a beer. They smell good, they look good, you'd step over yo
 Last night's "Itchy and Scratchy Show" was, without a doubt, the worst episode *ever.* Rest assured, I was on the Internet within minutes, registering my disgust throughout the world. Don't kid yourself, Jimmy. If a cow ever got the chance, he'd eat you and everyone you care about!
 
 Marge, just about everything's a sin. Y'ever sat down and read this thing? Technically we're not supposed to go to the bathroom. Beer. Now there's a temporary solution. Marge, it takes two to lie. One to lie and one to listen.
-</p>
+
